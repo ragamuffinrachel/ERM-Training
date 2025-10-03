@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERM Branching Scenario - Email Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="simulation-background">
+        <div id="email-view" class="email-client">
+            <div class="email-header">
+                <span>New Message</span>
+            </div>
+            <div class="email-meta">
+                <div><strong>From:</strong> KHS IT Support &lt;it.support@khs-net.com&gt;</div>
+                <div><strong>To:</strong> Valued Employee</div>
+                <div><strong>Subject:</strong> URGENT ACTION: Account Suspension</div>
+            </div>
+            <div class="email-body">
+                <p>Your system access will be suspended in one hour unless you immediately click the link below and enter your username and password to verify your account.</p>
+                
+                <a class="phishing-link" onclick="handleChoice(2)">https://khs-net-auth.com/verify</a>
+                
+                <p>Thank you,<br>KHS IT Support</p>
+            </div>
+            <div class="email-actions">
+                <button class="report-button" onclick="handleChoice(1)">✓ Report Phishing</button>
+                <button class="delete-button" onclick="handleChoice(3)">🗑️ Delete</button>
+            </div>
+        </div>
+
+        <div id="outcome-view" class="hidden">
+            <h3 id="outcome-title"></h3>
+            <p id="outcome-feedback"></p>
+            <button onclick="resetScenario()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
