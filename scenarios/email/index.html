@@ -3,40 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERM Branching Scenario - Email Simulation</title>
+    <title>KHS ERM Scenarios</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="simulation-background">
-        <div id="email-view" class="email-client">
-            <div class="email-header">
-                <span>New Message</span>
-            </div>
-            <div class="email-meta">
-                <div><strong>From:</strong> KHS IT Support &lt;it.support@khs-net.com&gt;</div>
-                <div><strong>To:</strong> Valued Employee</div>
-                <div><strong>Subject:</strong> URGENT ACTION: Account Suspension</div>
-            </div>
-            <div class="email-body">
-                <p>Your system access will be suspended in one hour unless you immediately click the link below and enter your username and password to verify your account.</p>
-                
-                <a class="phishing-link" onclick="handleChoice(2)">https://khs-net-auth.com/verify</a>
-                
-                <p>Thank you,<br>KHS IT Support</p>
-            </div>
-            <div class="email-actions">
-                <button class="report-button" onclick="handleChoice(1)">✓ Report Phishing</button>
-                <button class="delete-button" onclick="handleChoice(3)">🗑️ Delete</button>
-            </div>
-        </div>
+    <div id="progress-container" class="progress-container"></div>
 
-        <div id="outcome-view" class="hidden">
-            <h3 id="outcome-title"></h3>
-            <p id="outcome-feedback"></p>
-            <button onclick="resetScenario()">Try Again</button>
+    <!-- Main container for the knowledge check-style scenarios -->
+    <div id="knowledge-check-view" class="view-container">
+        <div class="container">
+            <div class="scenario-header">
+                <div class="scenario-text">
+                    <h2 id="scenario-title"></h2>
+                    <p id="scenario-description"></p>
+                </div>
+            </div>
+            <div class="interaction-panel">
+                <div id="choice-container" class="choice-container">
+                    <!-- Radio button choices will be dynamically created here -->
+                </div>
+                <div class="submit-container">
+                    <button id="submit-button" onclick="handleSubmit()" disabled>Submit</button>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Main container for the email-style scenarios -->
+    <div id="email-view" class="view-container hidden">
+        <div class="email-client">
+            <div class="email-header"><span>New Message</span></div>
+            <div class="email-meta">
+                <div id="email-from"></div>
+                <div id="email-to"></div>
+                <div id="email-subject"></div>
+            </div>
+            <div id="email-body" class="email-body"></div>
+            <div id="email-actions" class="email-actions"></div>
+        </div>
+    </div>
+
+    <!-- Universal Outcome Pop-up (Initially Hidden) -->
+    <div id="outcome-view" class="hidden">
+        <h3 id="outcome-title"></h3>
+        <p id="outcome-feedback"></p>
+        <button id="next-button"></button>
+    </div>
+
+    <!-- New element for the final next arrow, hidden by default -->
+    <div id="final-next-arrow" class="final-next-arrow hidden">
+        <span>→</span>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
